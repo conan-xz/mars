@@ -1,0 +1,25 @@
+<!--logs.wxml-->
+<view class="container">
+  <view class="horoscope">
+    <view wx:if="{{horoscope}}">
+      <text>星座: {{horoscope}}</text>
+      <text>职场运势: {{horoscope.career}}</text>
+      <text>情感运势: {{horoscope.love}}</text>
+      <text>财富运势: {{horoscope.wealth}}</text>
+      <text>健康运势: {{horoscope.health}}</text>
+    </view>
+    <view wx:else>
+      <!-- From Uiverse.io by abrahamcalsin --> 
+      <div class="dot-spinner">
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+          <div class="dot-spinner__dot"></div>
+      </div>
+    </view>
+  </view>
+</view>
