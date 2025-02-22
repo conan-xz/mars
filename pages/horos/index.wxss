@@ -2,7 +2,42 @@ page {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #f5f5f5; /* 背景颜色 */
 }
+
+.header {
+  padding: 20rpx;
+  background-color: #183153; /* 头部背景颜色 */
+  color: white;
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+}
+
+.horoscope-text {
+  font-size: 18px;
+  color: #333; /* 文字颜色 */
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.loading-text {
+  margin-top: 10rpx;
+  color: #999; /* 加载文字颜色 */
+}
+
 .scrollarea {
   flex: 1;
   overflow-y: hidden;
@@ -24,7 +59,7 @@ page {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   height: var(--uib-size);
   width: var(--uib-size);
 }

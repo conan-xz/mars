@@ -14,7 +14,7 @@ Page({
   },
   bindViewTap() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../horos/index'
     })
   },
   onChooseAvatar(e) {
