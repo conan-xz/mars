@@ -1,7 +1,7 @@
 <!-- index.wxml -->
 <view class="container">
   <view class="stars-background">
-    <view wx:for="{{50}}" wx:key="index" class="star" style="left: {{item.left}}%; top: {{item.top}}%; animation-delay: {{item.delay}}s"></view>
+    <view wx:for="{{50}}" wx:key="index" class="star"></view>
   </view>
   
   <view class="header">

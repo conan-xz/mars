@@ -32,34 +32,38 @@ Page({
 
   bindViewTap() {
     if (this.data.hasUserInfo) {
+      console.log('进入主页面', this.data);
       wx.navigateTo({
         url: '../horos/index'
       })
+    }else{
+      console.log('无法进入主页面', this.data);
     }
   },
 
   onChooseAvatar(e) {
     const { avatarUrl } = e.detail
-    const { nickName } = this.data.userInfo
     this.setData({
-      "userInfo.avatarUrl": avatarUrl,
-      hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      "userInfo.avatarUrl": avatarUrl
     })
     this.saveUserInfo()
+    console.log('用户头像', this.data);
   },
 
   onInputChange(e) {
     const nickName = e.detail.value
-    const { avatarUrl } = this.data.userInfo
     this.setData({
-      "userInfo.nickName": nickName,
-      hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      "userInfo.nickName": nickName
     })
     this.saveUserInfo()
+    console.log('用户姓名', this.data);
   },
 
   saveUserInfo() {
     wx.setStorageSync('userInfo', this.data.userInfo)
+    this.setData({
+      hasUserInfo: Boolean(this.data.userInfo.nickName !== "" && this.data.userInfo.avatarUrl !== "" && this.data.userInfo.avatarUrl !== defaultAvatarUrl),
+    })
   },
 
   getUserProfile(e) {
@@ -67,8 +71,7 @@ Page({
       desc: '用于完善会员资料',
       success: (res) => {
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+          userInfo: res.userInfo
         })
         this.saveUserInfo()
       },
