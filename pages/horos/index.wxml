@@ -1,46 +1,44 @@
 <!-- index.wxml -->
 <view class="container">
+  <view class="stars-background">
+    <view wx:for="{{50}}" wx:key="index" class="star" style="left: {{item.left}}%; top: {{item.top}}%; animation-delay: {{item.delay}}s"></view>
+  </view>
+  
   <view class="header">
-    <view class="back-icon">
-      <image src="/assets/back.png" mode="aspectFit"></image>
-    </view>
+    <view class="back-icon"></view>
     <text class="title">星座运势</text>
-    <view class="menu-icon">
-      <image src="/assets/menu.png" mode="aspectFit"></image>
-    </view>
+    <view class="menu-icon"></view>
   </view>
   
   <view class="content">
-    <view class="horoscope-card" wx:if="{{!loading && horoscope}}">
+    <view class="horoscope-card {{showContent ? 'show' : ''}}" wx:if="{{!loading && horoscope}}">
+      <view class="card-glow"></view>
+      
       <view class="user-info">
-        <text class="user-name">{{nickname}}</text>
-        <text class="zodiac-sign">~星座~</text>
+        <text class="user-name reveal-text">{{nickname}}</text>
+        <text class="zodiac-sign reveal-text">~{{zodiacSign}}~</text>
       </view>
       
-      <view class="divider"></view>
+      <view class="constellation-line"></view>
       
       <view class="fortune-content">
-        <text class="date">未来运势</text>
-        <text class="horoscope-text">{{horoscope}}</text>
+        <text class="date reveal-text">未来运势</text>
+        <text class="horoscope-text reveal-text">{{horoscope}}</text>
       </view>
       
       <view class="card-footer">
-        <view class="tag">事业运</view>
-        <view class="tag">财运</view>
-        <view class="tag">桃花运</view>
+        <view class="tag glow-effect">事业运</view>
+        <view class="tag glow-effect">财运</view>
+        <view class="tag glow-effect">桃花运</view>
       </view>
     </view>
     
     <view class="loading-container" wx:else>
-      <view class="dot-spinner">
-        <view class="dot-spinner__dot"></view>
-        <view class="dot-spinner__dot"></view>
-        <view class="dot-spinner__dot"></view>
-        <view class="dot-spinner__dot"></view>
-        <view class="dot-spinner__dot"></view>
-        <view class="dot-spinner__dot"></view>
-        <view class="dot-spinner__dot"></view>
-        <view class="dot-spinner__dot"></view>
+      <view class="mystic-spinner">
+        <view class="mystic-circle"></view>
+        <view class="constellation-dots">
+          <view wx:for="{{12}}" wx:key="index" class="constellation-dot"></view>
+        </view>
       </view>
       <text class="loading-text">正在解析星象...</text>
     </view>
