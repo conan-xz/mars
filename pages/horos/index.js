@@ -22,7 +22,7 @@ Page({
     
     this.setData({ stars });
 
-    console.log('用户昵称', this.data.nickname);
+    //console.log('用户昵称', this.data.nickname);
 
     try {
       // 获取签名
@@ -33,7 +33,7 @@ Page({
           nickname: this.data.nickname
         },
       });
-      console.log('签名返回结果', signResp);
+      //console.log('签名返回结果', signResp);
 
       // 处理签名错误
       if (signResp.code === "INVALID_HOST") {
@@ -57,7 +57,7 @@ Page({
         return;
       }
 
-      console.log('星座返回结果', chatResp);
+      //console.log('星座返回结果', chatResp);
       
       // 设置运势内容
       this.setData({
