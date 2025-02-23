@@ -13,7 +13,7 @@
   <view class="content">
     <view class="horoscope-card" wx:if="{{!loading && horoscope}}">
       <view class="user-info">
-        <text class="user-name">Jack</text>
+        <text class="user-name">{{nickname}}</text>
         <text class="zodiac-sign">~星座~</text>
       </view>
       
