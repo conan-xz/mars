@@ -232,27 +232,43 @@ page {
 }
 
 /* 新的神秘加载动画 */
+/* Loading container styles */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40rpx; /* Increased gap between spinner and text */
+  height: 100%;
+  padding: 20rpx;
+}
+
+/* Mystic spinner container */
 .mystic-spinner {
   position: relative;
-  width: 100rpx;
-  height: 100rpx;
+  width: 120rpx; /* Slightly larger for better visibility */
+  height: 120rpx;
+  margin: 0 auto; /* Ensure horizontal centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mystic-circle {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.1);
   border-top-color: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 1.2s linear infinite;
 }
 
 .constellation-dots {
   position: absolute;
   width: 100%;
   height: 100%;
-  animation: rotate 10s linear infinite;
+  animation: rotate 12s linear infinite;
 }
 
 .constellation-dot {
@@ -262,6 +278,28 @@ page {
   background: white;
   border-radius: 50%;
   animation: twinkle 2s infinite;
+}
+
+/* Position the dots in a circle */
+.constellation-dot:nth-child(1) { transform: rotate(0deg) translateX(60rpx); }
+.constellation-dot:nth-child(2) { transform: rotate(30deg) translateX(60rpx); }
+.constellation-dot:nth-child(3) { transform: rotate(60deg) translateX(60rpx); }
+.constellation-dot:nth-child(4) { transform: rotate(90deg) translateX(60rpx); }
+.constellation-dot:nth-child(5) { transform: rotate(120deg) translateX(60rpx); }
+.constellation-dot:nth-child(6) { transform: rotate(150deg) translateX(60rpx); }
+.constellation-dot:nth-child(7) { transform: rotate(180deg) translateX(60rpx); }
+.constellation-dot:nth-child(8) { transform: rotate(210deg) translateX(60rpx); }
+.constellation-dot:nth-child(9) { transform: rotate(240deg) translateX(60rpx); }
+.constellation-dot:nth-child(10) { transform: rotate(270deg) translateX(60rpx); }
+.constellation-dot:nth-child(11) { transform: rotate(300deg) translateX(60rpx); }
+.constellation-dot:nth-child(12) { transform: rotate(330deg) translateX(60rpx); }
+
+.loading-text {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  letter-spacing: 2rpx;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 @keyframes spin {
