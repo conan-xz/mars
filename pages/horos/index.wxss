@@ -1,20 +1,43 @@
+/* index.wxss */
 page {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #f5f5f5; /* 背景颜色 */
+  background: linear-gradient(135deg, #1a237e 0%, #000051 100%);
+  color: white;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
-  padding: 20rpx;
-  background-color: #183153; /* 头部背景颜色 */
-  color: white;
-  text-align: center;
+  padding: 40rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.back-icon, .menu-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.back-icon image, .menu-icon image {
+  width: 100%;
+  height: 100%;
 }
 
 .title {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 2rpx;
 }
 
 .content {
@@ -23,39 +46,89 @@ page {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20rpx;
+  padding: 40rpx;
+}
+
+.horoscope-card {
+  width: 90%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 30rpx;
+  padding: 40rpx;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.user-name {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: white;
+}
+
+.zodiac-sign {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 30rpx 0;
+}
+
+.fortune-content {
+  margin: 30rpx 0;
+}
+
+.date {
+  display: block;
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20rpx;
+  text-align: center;
 }
 
 .horoscope-text {
-  font-size: 18px;
-  color: #333; /* 文字颜色 */
-  text-align: center;
-  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  text-align: justify;
 }
 
-.loading-text {
-  margin-top: 10rpx;
-  color: #999; /* 加载文字颜色 */
+.card-footer {
+  display: flex;
+  justify-content: center;
+  gap: 20rpx;
+  margin-top: 40rpx;
 }
 
-.scrollarea {
-  flex: 1;
-  overflow-y: hidden;
-}
-.log-item {
-  margin-top: 20rpx;
-  text-align: center;
-}
-.log-item:last-child {
-  padding-bottom: env(safe-area-inset-bottom);
+.tag {
+  padding: 10rpx 30rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  color: white;
 }
 
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rpx;
+}
 
-/* From Uiverse.io by abrahamcalsin */ 
+/* 优化后的加载动画 */
 .dot-spinner {
   --uib-size: 2.8rem;
   --uib-speed: .9s;
-  --uib-color: #183153;
+  --uib-color: rgba(255, 255, 255, 0.8);
   position: relative;
   display: flex;
   align-items: center;
@@ -84,68 +157,12 @@ page {
   transform: scale(0);
   opacity: 0.5;
   animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;
-  box-shadow: 0 0 20px rgba(18, 31, 53, 0.3);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-.dot-spinner__dot:nth-child(2) {
-  transform: rotate(45deg);
-}
-
-.dot-spinner__dot:nth-child(2)::before {
-  animation-delay: calc(var(--uib-speed) * -0.875);
-}
-
-.dot-spinner__dot:nth-child(3) {
-  transform: rotate(90deg);
-}
-
-.dot-spinner__dot:nth-child(3)::before {
-  animation-delay: calc(var(--uib-speed) * -0.75);
-}
-
-.dot-spinner__dot:nth-child(4) {
-  transform: rotate(135deg);
-}
-
-.dot-spinner__dot:nth-child(4)::before {
-  animation-delay: calc(var(--uib-speed) * -0.625);
-}
-
-.dot-spinner__dot:nth-child(5) {
-  transform: rotate(180deg);
-}
-
-.dot-spinner__dot:nth-child(5)::before {
-  animation-delay: calc(var(--uib-speed) * -0.5);
-}
-
-.dot-spinner__dot:nth-child(6) {
-  transform: rotate(225deg);
-}
-
-.dot-spinner__dot:nth-child(6)::before {
-  animation-delay: calc(var(--uib-speed) * -0.375);
-}
-
-.dot-spinner__dot:nth-child(7) {
-  transform: rotate(270deg);
-}
-
-.dot-spinner__dot:nth-child(7)::before {
-  animation-delay: calc(var(--uib-speed) * -0.25);
-}
-
-.dot-spinner__dot:nth-child(8) {
-  transform: rotate(315deg);
-}
-
-.dot-spinner__dot:nth-child(8)::before {
-  animation-delay: calc(var(--uib-speed) * -0.125);
-}
-
+/* 保持原有的动画关键帧设置 */
 @keyframes pulse0112 {
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(0);
     opacity: 0.5;
   }
@@ -154,4 +171,28 @@ page {
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 2rpx;
+}
+
+/* 添加动态渐变背景 */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+page {
+  background-size: 200% 200%;
+  animation: gradientBG 15s ease infinite;
 }

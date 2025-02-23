@@ -1,27 +1,48 @@
-<!--index.wxml-->
+<!-- index.wxml -->
 <view class="container">
   <view class="header">
+    <view class="back-icon">
+      <image src="/assets/back.png" mode="aspectFit"></image>
+    </view>
     <text class="title">星座运势</text>
+    <view class="menu-icon">
+      <image src="/assets/menu.png" mode="aspectFit"></image>
+    </view>
   </view>
   
   <view class="content">
-    <view wx:if="{{!loading && horoscope}}">
-      <text class="horoscope-text">{{horoscope}}</text>
+    <view class="horoscope-card" wx:if="{{!loading && horoscope}}">
+      <view class="user-info">
+        <text class="user-name">Jack</text>
+        <text class="zodiac-sign">~星座~</text>
+      </view>
+      
+      <view class="divider"></view>
+      
+      <view class="fortune-content">
+        <text class="date">未来运势</text>
+        <text class="horoscope-text">{{horoscope}}</text>
+      </view>
+      
+      <view class="card-footer">
+        <view class="tag">事业运</view>
+        <view class="tag">财运</view>
+        <view class="tag">桃花运</view>
+      </view>
     </view>
     
-    <view wx:else>
-      <!-- From Uiverse.io by abrahamcalsin --> 
-      <div class="dot-spinner">
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-          <div class="dot-spinner__dot"></div>
-      </div>
-      <text class="loading-text">加载中...</text>
+    <view class="loading-container" wx:else>
+      <view class="dot-spinner">
+        <view class="dot-spinner__dot"></view>
+        <view class="dot-spinner__dot"></view>
+        <view class="dot-spinner__dot"></view>
+        <view class="dot-spinner__dot"></view>
+        <view class="dot-spinner__dot"></view>
+        <view class="dot-spinner__dot"></view>
+        <view class="dot-spinner__dot"></view>
+        <view class="dot-spinner__dot"></view>
+      </view>
+      <text class="loading-text">正在解析星象...</text>
     </view>
   </view>
 </view>

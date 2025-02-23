@@ -6,12 +6,7 @@ App({
       env: 'prod-5gg03znv016787f1', // 必填：云开发环境ID
       traceUser: true // 可选：开启用户行为日志
     });
-
-    // 展示本地存储能力
-    const horoscope = wx.getStorageSync('horoscope') || []
-    horoscope.unshift(Date.now())
-    wx.setStorageSync('horoscope', horoscope)
-
+    
     // 登录
     wx.login({
       success: res => {
