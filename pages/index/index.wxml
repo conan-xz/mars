@@ -1,27 +1,49 @@
-<!--index.wxml-->
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
+    <!-- Background Effects -->
+    <view class="stars-container">
+      <view class="star" wx:for="{{12}}" wx:key="index"></view>
     </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
+    <view class="glow-effects" bindtap="bindViewTap">
+      <view class="center-star"></view>
+      <view class="ripple" wx:for="{{3}}" wx:key="index"></view>
+    </view>
+
+    <!-- Main Content Card -->
+    <view class="login-card">
+      <view class="card-content">
+        <text class="title">求上签</text>
+        <text class="subtitle">欢迎使用星座运势</text>
+        
+        <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
+          <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+            <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+          </button>
+          <input type="nickname" 
+                 class="nickname-input" 
+                 placeholder="请输入昵称" 
+                 placeholder-class="input-placeholder"
+                 bind:change="onInputChange" />
+        </block>
+        
+        <block wx:elif="{{!hasUserInfo}}">
+          <button wx:if="{{canIUseGetUserProfile}}" 
+                  class="login-btn"
+                  bindtap="getUserProfile">
+            获取头像昵称
+          </button>
+          <view wx:else class="version-tip">
+            请使用2.10.4及以上版本基础库
+          </view>
+        </block>
+        
+        <block wx:else>
+          <image class="avatar" 
+                 src="{{userInfo.avatarUrl}}" 
+                 mode="cover"></image>
+          <text class="nickname">{{userInfo.nickName}}</text>
+        </block>
+      </view>
     </view>
   </view>
 </scroll-view>
