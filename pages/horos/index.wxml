@@ -22,7 +22,7 @@
       <view class="constellation-line"></view>
       
       <view class="fortune-content">
-        <text class="date reveal-text">未来运势</text>
+        <text class="date reveal-text">未来运势：</text>
         <text class="horoscope-text reveal-text">{{horoscope}}</text>
       </view>
       

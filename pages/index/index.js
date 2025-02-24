@@ -22,7 +22,7 @@ Page({
 
     // Try to restore saved user info
     const savedUserInfo = wx.getStorageSync('userInfo')
-    if (savedUserInfo && savedUserInfo.nickName && savedUserInfo.avatarUrl) {
+    if (savedUserInfo && Boolean(savedUserInfo.nickName !== "" && savedUserInfo.avatarUrl !== "" && savedUserInfo.avatarUrl !== defaultAvatarUrl)) {
       this.setData({
         userInfo: savedUserInfo,
         hasUserInfo: true
